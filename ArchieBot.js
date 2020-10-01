@@ -25,22 +25,25 @@ Client.on('message', message => {
 
       if (message.channel.type == 'dm'){
         
-         Client.channels.cache.get('761171304228323348').send(message).catch(err => console.log(err));
+         Client.channels.cache.get(process.env.ANON_CHAT_ID).send(message).catch(err => console.log(err));
  
          message.author.send("Your message has been sent to anon-chat").catch(err => console.log(err));
       }
 
      }else{
-        const args = message.content.slice(prefix.length).split(/ +/);
-        const command = args.shift().toLowerCase();
+         const args = message.content.slice(prefix.length).split(/ +/);
+         const command = args.shift().toLowerCase();
 
          if (command === 'ping'){
             Client.commands.get('ping').execute(message, args)
+
          }else if(command === 'fact'){
-            message.channel.send("command in development")
+            Client.commands.get('fact').execute(message, args)
+
          }
          else if (command === 'version'){
             message.channel.send("Current Archie Bot Version: Alpha v0.0.1")
+
          }
          else{
             message.channel.send("Invalid Command!!!");
@@ -50,4 +53,4 @@ Client.on('message', message => {
 
 
 
-Client.login()
+Client.login(process.env.TOKEN)
