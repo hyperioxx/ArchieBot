@@ -1,4 +1,4 @@
-![alt text]( "Logo Title Text 1")
+![alt text]( https://github.com/hyperioxx/ArchieBot/blob/master/assets/geeksanctum.jpg "Logo Title Text 1")
 
 # ArchieBot
 
